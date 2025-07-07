@@ -1,0 +1,763 @@
+/* ===== AMÉLIORATIONS MOBILE SPÉCIFIQUES ===== */
+
+/* Variables supplémentaires pour mobile */
+:root {
+    --mobile-header-height: 60px;
+    --mobile-nav-height: 70px;
+    --mobile-padding: 1rem;
+    --mobile-gap: 0.75rem;
+    --touch-target: 44px;
+}
+
+/* ===== NAVIGATION MOBILE ===== */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-white);
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    height: var(--mobile-nav-height);
+}
+
+.mobile-nav-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 0 var(--space-sm);
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xs);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+    min-width: var(--touch-target);
+    min-height: var(--touch-target);
+    text-decoration: none;
+    color: var(--text-secondary);
+    position: relative;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.mobile-nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+.mobile-nav-item span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mobile-nav-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--primary-red);
+    color: white;
+    border-radius: var(--radius-full);
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+/* ===== HEADER MOBILE ===== */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-white);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    height: var(--mobile-header-height);
+}
+
+.mobile-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 var(--mobile-padding);
+}
+
+.mobile-header-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.mobile-header-actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.mobile-header-btn {
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border-radius: var(--radius-md);
+    background: rgba(59, 130, 246, 0.1);
+    border: none;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.mobile-header-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: scale(1.05);
+}
+
+/* ===== CARTES MOBILES ===== */
+.mobile-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(59, 130, 246, 0.08);
+    overflow: hidden;
+    margin-bottom: var(--mobile-gap);
+}
+
+.mobile-card-header {
+    padding: var(--mobile-padding);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    background: linear-gradient(135deg, var(--bg-gray-50) 0%, rgba(59, 130, 246, 0.02) 100%);
+}
+
+.mobile-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0;
+}
+
+.mobile-card-body {
+    padding: var(--mobile-padding);
+}
+
+/* ===== COURS MOBILE ===== */
+.mobile-course-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--mobile-padding);
+    background: var(--bg-gray-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-blue);
+    margin-bottom: var(--mobile-gap);
+    transition: all var(--transition-normal);
+}
+
+.mobile-course-item:hover {
+    background: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+}
+
+.mobile-course-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    text-align: center;
+}
+
+.mobile-course-time-range {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.mobile-course-status {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.mobile-course-status.current {
+    background: var(--primary-green);
+    color: white;
+}
+
+.mobile-course-status.upcoming {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.mobile-course-status.past {
+    background: var(--text-muted);
+    color: white;
+}
+
+.mobile-course-details {
+    flex: 1;
+}
+
+.mobile-course-subject {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.mobile-course-info {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* ===== DEVOIRS MOBILE ===== */
+.mobile-homework-item {
+    background: var(--bg-gray-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-blue);
+    margin-bottom: var(--mobile-gap);
+    overflow: hidden;
+}
+
+.mobile-homework-header {
+    padding: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.mobile-homework-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    flex: 1;
+}
+
+.mobile-homework-status {
+    flex-shrink: 0;
+}
+
+.mobile-homework-body {
+    padding: 0 var(--space-md) var(--space-md);
+}
+
+.mobile-homework-content {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+
+.mobile-homework-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.mobile-homework-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.mobile-homework-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+/* ===== NOTES MOBILE ===== */
+.mobile-grade-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md);
+    background: var(--bg-gray-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-blue);
+    margin-bottom: var(--mobile-gap);
+}
+
+.mobile-grade-info {
+    flex: 1;
+}
+
+.mobile-grade-subject {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.mobile-grade-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.mobile-grade-value {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-align: center;
+    min-width: 60px;
+}
+
+/* ===== PHOTO MOBILE ===== */
+.mobile-photo-container {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.mobile-photo-current {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-lg);
+}
+
+.mobile-photo-current img {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary-green);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+}
+
+.mobile-photo-overlay {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: 2px solid var(--bg-white);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== BOUTONS MOBILE ===== */
+.mobile-btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-height: var(--touch-target);
+    white-space: nowrap;
+}
+
+.mobile-btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    min-height: 36px;
+}
+
+.mobile-btn-full {
+    width: 100%;
+}
+
+/* ===== MODAL MOBILE ===== */
+.mobile-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+}
+
+.mobile-modal-content {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUpMobile 0.3s ease;
+}
+
+@keyframes slideUpMobile {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.mobile-modal-header {
+    padding: var(--space-lg) var(--mobile-padding);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-modal-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.mobile-modal-close {
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border: none;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-blue);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-modal-body {
+    padding: var(--mobile-padding);
+}
+
+/* ===== ÉTATS VIDES MOBILE ===== */
+.mobile-empty-state {
+    text-align: center;
+    padding: var(--space-2xl) var(--mobile-padding);
+    color: var(--text-secondary);
+}
+
+.mobile-empty-state i {
+    font-size: 3rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.mobile-empty-state h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.mobile-empty-state p {
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-lg);
+    }
+    
+    .header-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: var(--mobile-nav-height);
+    }
+    
+    .container {
+        padding: var(--mobile-padding);
+        padding-top: calc(var(--mobile-header-height) + var(--mobile-padding));
+        padding-bottom: calc(var(--mobile-nav-height) + var(--mobile-padding));
+    }
+    
+    /* Afficher la navigation mobile */
+    .mobile-nav {
+        display: block;
+    }
+    
+    .mobile-header {
+        display: block;
+    }
+    
+    /* Masquer le header desktop */
+    .profile-header {
+        display: none;
+    }
+    
+    /* Adapter les cartes */
+    .card {
+        border-radius: var(--radius-lg);
+        margin-bottom: var(--mobile-gap);
+    }
+    
+    .card-header,
+    .card-body {
+        padding: var(--mobile-padding);
+    }
+    
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Adapter les cours */
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: var(--mobile-padding);
+    }
+    
+    .course-time {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .course-details {
+        width: 100%;
+    }
+    
+    .course-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+    
+    /* Adapter les devoirs */
+    .homework-item {
+        padding: var(--mobile-padding);
+    }
+    
+    .homework-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+    
+    .homework-title {
+        font-size: 1.1rem;
+    }
+    
+    .homework-content {
+        padding: var(--mobile-padding);
+        font-size: 0.9rem;
+    }
+    
+    .homework-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-sm);
+    }
+    
+    /* Adapter les notes */
+    .grade-item {
+        padding: var(--mobile-padding);
+    }
+    
+    /* Adapter les boutons */
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+        min-height: var(--touch-target);
+    }
+    
+    .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        min-height: 36px;
+    }
+    
+    /* Adapter la photo */
+    .current-photo img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .photo-overlay {
+        width: 36px;
+        height: 36px;
+        bottom: 6px;
+        right: 6px;
+    }
+}
+
+/* Petits smartphones */
+@media (max-width: 480px) {
+    .container {
+        padding: var(--space-sm);
+        padding-top: calc(var(--mobile-header-height) + var(--space-sm));
+        padding-bottom: calc(var(--mobile-nav-height) + var(--space-sm));
+    }
+    
+    .mobile-header-content,
+    .mobile-nav-content {
+        padding: 0 var(--space-sm);
+    }
+    
+    .mobile-header-title {
+        font-size: 1rem;
+    }
+    
+    .card-header,
+    .card-body {
+        padding: var(--space-md);
+    }
+    
+    .mobile-course-item,
+    .mobile-homework-item,
+    .mobile-grade-item {
+        padding: var(--space-md);
+    }
+    
+    .mobile-btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .mobile-nav-item span {
+        font-size: 0.65rem;
+    }
+}
+
+/* ===== AMÉLIORATIONS TACTILES ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Améliorer les interactions tactiles */
+    .btn,
+    .mobile-btn,
+    .mobile-nav-item,
+    .mobile-header-btn {
+        min-height: var(--touch-target);
+        min-width: var(--touch-target);
+    }
+    
+    /* Supprimer les effets de hover sur mobile */
+    .card:hover,
+    .btn:hover,
+    .course-item:hover,
+    .homework-item:hover,
+    .grade-item:hover {
+        transform: none;
+    }
+    
+    /* Ajouter des effets de tap */
+    .btn:active,
+    .mobile-btn:active,
+    .mobile-nav-item:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+/* ===== OPTIMISATIONS PERFORMANCE MOBILE ===== */
+@media (max-width: 768px) {
+    /* Réduire les animations sur mobile */
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Optimiser les ombres */
+    .card,
+    .mobile-card {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Simplifier les gradients */
+    .btn-primary,
+    .mobile-btn-primary {
+        background: var(--primary-blue);
+    }
+    
+    .btn-success,
+    .mobile-btn-success {
+        background: var(--primary-green);
+    }
+}
+
+/* ===== ACCESSIBILITÉ MOBILE ===== */
+@media (max-width: 768px) {
+    /* Améliorer la lisibilité */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    /* Contraste amélioré */
+    .mobile-nav-item {
+        color: var(--text-primary);
+    }
+    
+    .mobile-nav-item.active {
+        background: var(--primary-blue);
+        color: white;
+    }
+    
+    /* Focus visible */
+    .mobile-btn:focus,
+    .mobile-nav-item:focus,
+    .mobile-header-btn:focus {
+        outline: 2px solid var(--primary-blue);
+        outline-offset: 2px;
+    }
+}

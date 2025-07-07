@@ -1,0 +1,11 @@
+Erreur lors du bind pour sarahlL1G1@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour ElimProf @Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour Hs vend kg@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour AndrypL1G2@Educonnect.mg avec le mot de passe.
+L'utilisateur MiradoL1G1 n'appartient à aucun groupe valide.
+Erreur lors du bind pour MohamProf@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour ElimProf@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour AndrypL1G2@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour ElimProf@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour sharahlL1G1@Educonnect.mg avec le mot de passe.
+Erreur lors du bind pour AndrypL1G2@Educonnect.mg avec le mot de passe.

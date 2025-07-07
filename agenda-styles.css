@@ -1,0 +1,649 @@
+/* Styles pour l'agenda complet */
+
+.agenda-header {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    text-align: center;
+    flex: 1;
+}
+
+.header-title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.header-title h1 i {
+    color: #3b82f6;
+}
+
+.header-title p {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Container principal de l'agenda */
+.agenda-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Vue semaine */
+.week-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    min-height: 600px;
+}
+
+/* Colonne de jour */
+.day-column {
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+    transition: all 0.3s ease;
+}
+
+.day-column:last-child {
+    border-right: none;
+}
+
+.day-column.current-day {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #3b82f6;
+    border-right: 4px solid #3b82f6;
+}
+
+.day-column.empty-day {
+    opacity: 0.6;
+}
+
+/* En-tête de jour */
+.day-header {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+    position: relative;
+}
+
+.current-day .day-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.day-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.current-day .day-header h3 {
+    color: white;
+}
+
+.day-date {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.current-day .day-date {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.today-indicator {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.today-indicator i {
+    font-size: 0.5rem;
+    animation: pulse-dot 2s infinite;
+}
+
+/* Cours du jour */
+.day-courses {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.agenda-course-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem;
+    border-left: 4px solid #e5e7eb;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.agenda-course-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== COULEURS PAR MATIÈRE POUR L'AGENDA ===== */
+/* Mathématiques - Bleu */
+.agenda-course-item[data-subject*="Mathématiques"],
+.agenda-course-item[data-subject*="Math"] {
+    border-left-color: #3b82f6 !important;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Mathématiques"]::before,
+.agenda-course-item[data-subject*="Math"]::before {
+    background: #3b82f6 !important;
+}
+
+.agenda-course-item[data-subject*="Mathématiques"] .course-subject-name,
+.agenda-course-item[data-subject*="Math"] .course-subject-name {
+    color: #1e40af !important;
+}
+
+/* Français - Vert */
+.agenda-course-item[data-subject*="Français"],
+.agenda-course-item[data-subject*="Francais"] {
+    border-left-color: #22c55e !important;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Français"]::before,
+.agenda-course-item[data-subject*="Francais"]::before {
+    background: #22c55e !important;
+}
+
+.agenda-course-item[data-subject*="Français"] .course-subject-name,
+.agenda-course-item[data-subject*="Francais"] .course-subject-name {
+    color: #166534 !important;
+}
+
+/* Histoire - Orange */
+.agenda-course-item[data-subject*="Histoire"] {
+    border-left-color: #f59e0b !important;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Histoire"]::before {
+    background: #f59e0b !important;
+}
+
+.agenda-course-item[data-subject*="Histoire"] .course-subject-name {
+    color: #92400e !important;
+}
+
+/* Physique - Violet */
+.agenda-course-item[data-subject*="Physique"] {
+    border-left-color: #8b5cf6 !important;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Physique"]::before {
+    background: #8b5cf6 !important;
+}
+
+.agenda-course-item[data-subject*="Physique"] .course-subject-name {
+    color: #6d28d9 !important;
+}
+
+/* Chimie - Rouge-Orange */
+.agenda-course-item[data-subject*="Chimie"] {
+    border-left-color: #f97316 !important;
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Chimie"]::before {
+    background: #f97316 !important;
+}
+
+.agenda-course-item[data-subject*="Chimie"] .course-subject-name {
+    color: #c2410c !important;
+}
+
+/* Biologie - Teal */
+.agenda-course-item[data-subject*="Biologie"],
+.agenda-course-item[data-subject*="SVT"] {
+    border-left-color: #14b8a6 !important;
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Biologie"]::before,
+.agenda-course-item[data-subject*="SVT"]::before {
+    background: #14b8a6 !important;
+}
+
+.agenda-course-item[data-subject*="Biologie"] .course-subject-name,
+.agenda-course-item[data-subject*="SVT"] .course-subject-name {
+    color: #0f766e !important;
+}
+
+/* Anglais - Rose */
+.agenda-course-item[data-subject*="Anglais"],
+.agenda-course-item[data-subject*="English"] {
+    border-left-color: #ec4899 !important;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Anglais"]::before,
+.agenda-course-item[data-subject*="English"]::before {
+    background: #ec4899 !important;
+}
+
+.agenda-course-item[data-subject*="Anglais"] .course-subject-name,
+.agenda-course-item[data-subject*="English"] .course-subject-name {
+    color: #be185d !important;
+}
+
+/* Sport/EPS - Rouge */
+.agenda-course-item[data-subject*="Sport"],
+.agenda-course-item[data-subject*="EPS"] {
+    border-left-color: #ef4444 !important;
+    background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Sport"]::before,
+.agenda-course-item[data-subject*="EPS"]::before {
+    background: #ef4444 !important;
+}
+
+.agenda-course-item[data-subject*="Sport"] .course-subject-name,
+.agenda-course-item[data-subject*="EPS"] .course-subject-name {
+    color: #dc2626 !important;
+}
+
+/* Géographie - Cyan */
+.agenda-course-item[data-subject*="Géographie"],
+.agenda-course-item[data-subject*="Geographie"] {
+    border-left-color: #06b6d4 !important;
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Géographie"]::before,
+.agenda-course-item[data-subject*="Geographie"]::before {
+    background: #06b6d4 !important;
+}
+
+.agenda-course-item[data-subject*="Géographie"] .course-subject-name,
+.agenda-course-item[data-subject*="Geographie"] .course-subject-name {
+    color: #0e7490 !important;
+}
+
+/* Philosophie - Indigo */
+.agenda-course-item[data-subject*="Philosophie"],
+.agenda-course-item[data-subject*="Philo"] {
+    border-left-color: #6366f1 !important;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Philosophie"]::before,
+.agenda-course-item[data-subject*="Philo"]::before {
+    background: #6366f1 !important;
+}
+
+.agenda-course-item[data-subject*="Philosophie"] .course-subject-name,
+.agenda-course-item[data-subject*="Philo"] .course-subject-name {
+    color: #4338ca !important;
+}
+
+/* Économie - Lime */
+.agenda-course-item[data-subject*="Économie"],
+.agenda-course-item[data-subject*="Economie"],
+.agenda-course-item[data-subject*="Éco"] {
+    border-left-color: #84cc16 !important;
+    background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%) !important;
+}
+
+.agenda-course-item[data-subject*="Économie"]::before,
+.agenda-course-item[data-subject*="Economie"]::before,
+.agenda-course-item[data-subject*="Éco"]::before {
+    background: #84cc16 !important;
+}
+
+.agenda-course-item[data-subject*="Économie"] .course-subject-name,
+.agenda-course-item[data-subject*="Economie"] .course-subject-name,
+.agenda-course-item[data-subject*="Éco"] .course-subject-name {
+    color: #65a30d !important;
+}
+
+/* États des cours dans l'agenda */
+.agenda-course-item.current {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.agenda-course-item.upcoming {
+    /* Garde les couleurs de matière */
+}
+
+.agenda-course-item.past {
+    opacity: 0.7;
+    filter: grayscale(0.3);
+}
+
+/* Horaire du cours */
+.course-time-slot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #3b82f6;
+    margin-bottom: 0.75rem;
+}
+
+.time-separator {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+/* Contenu du cours */
+.course-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.course-subject-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1f2937;
+    line-height: 1.2;
+}
+
+.course-details-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.course-room-mini,
+.course-teacher-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.course-room-mini i,
+.course-teacher-mini i {
+    color: #3b82f6;
+    width: 12px;
+    text-align: center;
+}
+
+/* Indicateur en direct */
+.live-indicator {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #22c55e;
+    font-size: 0.6rem;
+    animation: pulse-live 2s infinite;
+}
+
+/* Jour sans cours */
+.no-courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: #9ca3af;
+    text-align: center;
+    gap: 1rem;
+}
+
+.no-courses i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.no-courses span {
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* État vide complet */
+.empty-schedule-full {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 20px;
+    border: 2px dashed #d1d5db;
+    margin: 2rem;
+}
+
+.empty-schedule-full .empty-schedule-icon i {
+    font-size: 6rem;
+    color: #9ca3af;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+.empty-schedule-full h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.empty-schedule-full p {
+    color: #6b7280;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+/* Résumé de l'emploi du temps */
+.schedule-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.summary-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6 0%, #22c55e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.summary-info h4 {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.summary-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes pulse-live {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.3);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .week-view {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .agenda-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .week-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .day-column {
+        min-height: auto;
+    }
+    
+    .schedule-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .agenda-container {
+        margin: 0 -1rem;
+        border-radius: 0;
+    }
+    
+    .day-header {
+        padding: 1rem;
+    }
+    
+    .day-courses {
+        padding: 0.75rem;
+    }
+    
+    .agenda-course-item {
+        padding: 0.75rem;
+    }
+    
+    .course-details-mini {
+        gap: 0.5rem;
+    }
+    
+    .course-room-mini,
+    .course-teacher-mini {
+        font-size: 0.75rem;
+    }
+}
+
+/* Styles d'impression */
+@media print {
+    .agenda-header .header-navigation,
+    .agenda-header .header-actions {
+        display: none;
+    }
+    
+    .week-view {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1px;
+        background: #000;
+    }
+    
+    .day-column {
+        background: white;
+        border: none;
+        min-height: auto;
+    }
+    
+    .agenda-course-item {
+        background: white !important;
+        border: 1px solid #e5e7eb;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    
+    .schedule-summary {
+        display: none;
+    }
+}

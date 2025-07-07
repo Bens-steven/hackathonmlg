@@ -1,0 +1,9 @@
+{
+    "username": "directrice",
+    "fullname": "Eliane Chaise",
+    "groups": [
+        "G_Admin_Direction",
+        "G_Acces dossierExamens"
+    ],
+    "matiere": "Acces dossierExamens"
+}

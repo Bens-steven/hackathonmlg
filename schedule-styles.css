@@ -1,0 +1,524 @@
+/* Styles spécifiques pour l'emploi du temps */
+
+/* Header de la carte emploi du temps */
+.schedule-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.schedule-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.schedule-date i {
+    color: #3b82f6;
+}
+
+/* Emploi du temps du jour */
+.today-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.course-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: #f8fafc;
+    border-left: 4px solid #e5e7eb;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== COULEURS PAR MATIÈRE ===== */
+/* Mathématiques - Bleu */
+.course-item[data-subject*="Mathématiques"],
+.course-item[data-subject*="Math"],
+.agenda-course-item[data-subject*="Mathématiques"],
+.agenda-course-item[data-subject*="Math"] {
+    border-left-color: #3b82f6 !important;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+}
+
+.course-item[data-subject*="Mathématiques"]::before,
+.course-item[data-subject*="Math"]::before,
+.agenda-course-item[data-subject*="Mathématiques"]::before,
+.agenda-course-item[data-subject*="Math"]::before {
+    background: #3b82f6 !important;
+}
+
+.course-item[data-subject*="Mathématiques"] .course-subject,
+.course-item[data-subject*="Math"] .course-subject,
+.agenda-course-item[data-subject*="Mathématiques"] .course-subject-name,
+.agenda-course-item[data-subject*="Math"] .course-subject-name {
+    color: #1e40af !important;
+}
+
+/* Français - Vert */
+.course-item[data-subject*="Français"],
+.course-item[data-subject*="Francais"],
+.agenda-course-item[data-subject*="Français"],
+.agenda-course-item[data-subject*="Francais"] {
+    border-left-color: #22c55e !important;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+}
+
+.course-item[data-subject*="Français"]::before,
+.course-item[data-subject*="Francais"]::before,
+.agenda-course-item[data-subject*="Français"]::before,
+.agenda-course-item[data-subject*="Francais"]::before {
+    background: #22c55e !important;
+}
+
+.course-item[data-subject*="Français"] .course-subject,
+.course-item[data-subject*="Francais"] .course-subject,
+.agenda-course-item[data-subject*="Français"] .course-subject-name,
+.agenda-course-item[data-subject*="Francais"] .course-subject-name {
+    color: #166534 !important;
+}
+
+/* Histoire - Orange */
+.course-item[data-subject*="Histoire"],
+.agenda-course-item[data-subject*="Histoire"] {
+    border-left-color: #f59e0b !important;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+}
+
+.course-item[data-subject*="Histoire"]::before,
+.agenda-course-item[data-subject*="Histoire"]::before {
+    background: #f59e0b !important;
+}
+
+.course-item[data-subject*="Histoire"] .course-subject,
+.agenda-course-item[data-subject*="Histoire"] .course-subject-name {
+    color: #92400e !important;
+}
+
+/* Physique - Violet */
+.course-item[data-subject*="Physique"],
+.agenda-course-item[data-subject*="Physique"] {
+    border-left-color: #8b5cf6 !important;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) !important;
+}
+
+.course-item[data-subject*="Physique"]::before,
+.agenda-course-item[data-subject*="Physique"]::before {
+    background: #8b5cf6 !important;
+}
+
+.course-item[data-subject*="Physique"] .course-subject,
+.agenda-course-item[data-subject*="Physique"] .course-subject-name {
+    color: #6d28d9 !important;
+}
+
+/* Chimie - Rouge-Orange */
+.course-item[data-subject*="Chimie"],
+.agenda-course-item[data-subject*="Chimie"] {
+    border-left-color: #f97316 !important;
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%) !important;
+}
+
+.course-item[data-subject*="Chimie"]::before,
+.agenda-course-item[data-subject*="Chimie"]::before {
+    background: #f97316 !important;
+}
+
+.course-item[data-subject*="Chimie"] .course-subject,
+.agenda-course-item[data-subject*="Chimie"] .course-subject-name {
+    color: #c2410c !important;
+}
+
+/* Biologie - Teal */
+.course-item[data-subject*="Biologie"],
+.course-item[data-subject*="SVT"],
+.agenda-course-item[data-subject*="Biologie"],
+.agenda-course-item[data-subject*="SVT"] {
+    border-left-color: #14b8a6 !important;
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%) !important;
+}
+
+.course-item[data-subject*="Biologie"]::before,
+.course-item[data-subject*="SVT"]::before,
+.agenda-course-item[data-subject*="Biologie"]::before,
+.agenda-course-item[data-subject*="SVT"]::before {
+    background: #14b8a6 !important;
+}
+
+.course-item[data-subject*="Biologie"] .course-subject,
+.course-item[data-subject*="SVT"] .course-subject,
+.agenda-course-item[data-subject*="Biologie"] .course-subject-name,
+.agenda-course-item[data-subject*="SVT"] .course-subject-name {
+    color: #0f766e !important;
+}
+
+/* Anglais - Rose */
+.course-item[data-subject*="Anglais"],
+.course-item[data-subject*="English"],
+.agenda-course-item[data-subject*="Anglais"],
+.agenda-course-item[data-subject*="English"] {
+    border-left-color: #ec4899 !important;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%) !important;
+}
+
+.course-item[data-subject*="Anglais"]::before,
+.course-item[data-subject*="English"]::before,
+.agenda-course-item[data-subject*="Anglais"]::before,
+.agenda-course-item[data-subject*="English"]::before {
+    background: #ec4899 !important;
+}
+
+.course-item[data-subject*="Anglais"] .course-subject,
+.course-item[data-subject*="English"] .course-subject,
+.agenda-course-item[data-subject*="Anglais"] .course-subject-name,
+.agenda-course-item[data-subject*="English"] .course-subject-name {
+    color: #be185d !important;
+}
+
+/* Sport/EPS - Rouge */
+.course-item[data-subject*="Sport"],
+.course-item[data-subject*="EPS"],
+.agenda-course-item[data-subject*="Sport"],
+.agenda-course-item[data-subject*="EPS"] {
+    border-left-color: #ef4444 !important;
+    background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%) !important;
+}
+
+.course-item[data-subject*="Sport"]::before,
+.course-item[data-subject*="EPS"]::before,
+.agenda-course-item[data-subject*="Sport"]::before,
+.agenda-course-item[data-subject*="EPS"]::before {
+    background: #ef4444 !important;
+}
+
+.course-item[data-subject*="Sport"] .course-subject,
+.course-item[data-subject*="EPS"] .course-subject,
+.agenda-course-item[data-subject*="Sport"] .course-subject-name,
+.agenda-course-item[data-subject*="EPS"] .course-subject-name {
+    color: #dc2626 !important;
+}
+
+/* Géographie - Cyan */
+.course-item[data-subject*="Géographie"],
+.course-item[data-subject*="Geographie"],
+.agenda-course-item[data-subject*="Géographie"],
+.agenda-course-item[data-subject*="Geographie"] {
+    border-left-color: #06b6d4 !important;
+    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%) !important;
+}
+
+.course-item[data-subject*="Géographie"]::before,
+.course-item[data-subject*="Geographie"]::before,
+.agenda-course-item[data-subject*="Géographie"]::before,
+.agenda-course-item[data-subject*="Geographie"]::before {
+    background: #06b6d4 !important;
+}
+
+.course-item[data-subject*="Géographie"] .course-subject,
+.course-item[data-subject*="Geographie"] .course-subject,
+.agenda-course-item[data-subject*="Géographie"] .course-subject-name,
+.agenda-course-item[data-subject*="Geographie"] .course-subject-name {
+    color: #0e7490 !important;
+}
+
+/* Philosophie - Indigo */
+.course-item[data-subject*="Philosophie"],
+.course-item[data-subject*="Philo"],
+.agenda-course-item[data-subject*="Philosophie"],
+.agenda-course-item[data-subject*="Philo"] {
+    border-left-color: #6366f1 !important;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%) !important;
+}
+
+.course-item[data-subject*="Philosophie"]::before,
+.course-item[data-subject*="Philo"]::before,
+.agenda-course-item[data-subject*="Philosophie"]::before,
+.agenda-course-item[data-subject*="Philo"]::before {
+    background: #6366f1 !important;
+}
+
+.course-item[data-subject*="Philosophie"] .course-subject,
+.course-item[data-subject*="Philo"] .course-subject,
+.agenda-course-item[data-subject*="Philosophie"] .course-subject-name,
+.agenda-course-item[data-subject*="Philo"] .course-subject-name {
+    color: #4338ca !important;
+}
+
+/* Économie - Lime */
+.course-item[data-subject*="Économie"],
+.course-item[data-subject*="Economie"],
+.course-item[data-subject*="Éco"],
+.agenda-course-item[data-subject*="Économie"],
+.agenda-course-item[data-subject*="Economie"],
+.agenda-course-item[data-subject*="Éco"] {
+    border-left-color: #84cc16 !important;
+    background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%) !important;
+}
+
+.course-item[data-subject*="Économie"]::before,
+.course-item[data-subject*="Economie"]::before,
+.course-item[data-subject*="Éco"]::before,
+.agenda-course-item[data-subject*="Économie"]::before,
+.agenda-course-item[data-subject*="Economie"]::before,
+.agenda-course-item[data-subject*="Éco"]::before {
+    background: #84cc16 !important;
+}
+
+.course-item[data-subject*="Économie"] .course-subject,
+.course-item[data-subject*="Economie"] .course-subject,
+.course-item[data-subject*="Éco"] .course-subject,
+.agenda-course-item[data-subject*="Économie"] .course-subject-name,
+.agenda-course-item[data-subject*="Economie"] .course-subject-name,
+.agenda-course-item[data-subject*="Éco"] .course-subject-name {
+    color: #65a30d !important;
+}
+
+/* États des cours */
+.course-item.current {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.course-item.current::before {
+    animation: pulse-border 2s infinite;
+}
+
+.course-item.upcoming {
+    /* Garde les couleurs de matière */
+}
+
+.course-item.past {
+    opacity: 0.7;
+    filter: grayscale(0.3);
+}
+
+/* Temps du cours */
+.course-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    text-align: center;
+}
+
+.time-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1f2937;
+}
+
+.time-range i {
+    color: #3b82f6;
+    font-size: 1rem;
+}
+
+.course-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.course-status.current {
+    background: #22c55e;
+    color: white;
+    animation: pulse-status 2s infinite;
+}
+
+.course-status.upcoming {
+    background: #3b82f6;
+    color: white;
+}
+
+.course-status.past {
+    background: #9ca3af;
+    color: white;
+}
+
+/* Détails du cours */
+.course-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.course-subject {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.2;
+}
+
+.course-info {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.course-room,
+.course-teacher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.course-room i,
+.course-teacher i {
+    color: #3b82f6;
+    width: 16px;
+    text-align: center;
+}
+
+/* État vide pour l'emploi du temps */
+.empty-schedule {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-radius: 20px;
+    border: 2px dashed #d1d5db;
+}
+
+.empty-schedule-icon {
+    margin-bottom: 2rem;
+}
+
+.empty-schedule-icon i {
+    font-size: 5rem;
+    color: #9ca3af;
+    opacity: 0.7;
+}
+
+.empty-schedule h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.empty-schedule p {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Animations */
+@keyframes pulse-border {
+    0%, 100% {
+        width: 4px;
+        opacity: 1;
+    }
+    50% {
+        width: 8px;
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse-status {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .schedule-card .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .course-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .course-time {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .course-info {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .course-room,
+    .course-teacher {
+        flex: 1;
+        justify-content: center;
+        min-width: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .course-room,
+    .course-teacher {
+        width: 100%;
+    }
+    
+    .empty-schedule {
+        padding: 2rem 1rem;
+    }
+    
+    .empty-schedule-icon i {
+        font-size: 3rem;
+    }
+    
+    .empty-schedule h4 {
+        font-size: 1.2rem;
+    }
+}
