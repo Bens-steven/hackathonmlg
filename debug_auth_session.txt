@@ -1,9 +1,11 @@
 {
-    "username": "directrice",
-    "fullname": "Eliane Chaise",
+    "logout_success": "Nivoaka tamim-pahombiazana ianao",
+    "username": "AndrypL1G2",
+    "fullname": "Andry premier",
     "groups": [
-        "G_Admin_Direction",
-        "G_Acces dossierExamens"
+        "G_Acces_DossierCours",
+        "G_L1G2",
+        "G_Tous_Eleves"
     ],
-    "matiere": "Acces dossierExamens"
+    "matiere": "L1G2"
 }

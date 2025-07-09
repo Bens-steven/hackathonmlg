@@ -1,5 +1,0 @@
-{
-    "session_matiere": "Math\u00e9matiques",
-    "classe_get": "L1G2",
-    "session_username": "ElimProf"
-}

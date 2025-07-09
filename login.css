@@ -16,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-/* Effet de particules en arrière-plan amélioré */
+/* Vokatra poti-javatra any aoriana nohatsaraina */
 body::before {
     content: '';
     position: absolute;
@@ -123,7 +123,7 @@ h2 {
     opacity: 0.95;
 }
 
-/* Styles pour les erreurs d'identifiants */
+/* Fomba fanao ho an'ny hadisoana mari-pamantarana */
 #error-container {
     margin-bottom: 20px;
 }
@@ -307,7 +307,7 @@ h2 {
     margin-right: 10px;
 }
 
-/* Effet de focus amélioré sur les inputs */
+/* Vokatra fifantohana nohatsaraina amin'ny inputs */
 .form-group::after {
     content: '';
     position: absolute;
@@ -325,7 +325,7 @@ h2 {
     width: 100%;
 }
 
-/* Loading state amélioré pour le bouton */
+/* Toe-javatra loading nohatsaraina ho an'ny bokotra */
 .login-btn.loading {
     pointer-events: none;
     opacity: 0.8;
@@ -351,7 +351,7 @@ h2 {
     100% { transform: rotate(360deg); }
 }
 
-/* Animations pour les notifications */
+/* Fihetsiketsehana ho an'ny fampandrenesana */
 @keyframes slideInRight {
     from {
         opacity: 0;
@@ -374,7 +374,7 @@ h2 {
     }
 }
 
-/* Responsive Design Amélioré */
+/* Responsive Design Nohatsaraina */
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -481,7 +481,7 @@ h2 {
     }
 }
 
-/* Animation d'entrée pour les éléments du formulaire */
+/* Fihetsiketsehana fidirana ho an'ny singa formulaire */
 .form-group {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
@@ -505,7 +505,7 @@ h2 {
     }
 }
 
-/* Amélioration de l'accessibilité */
+/* Fanatsarana ny fahafahana miditra */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
